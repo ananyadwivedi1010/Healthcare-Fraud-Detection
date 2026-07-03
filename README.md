@@ -34,10 +34,21 @@ Healthcare fraud costs billions annually and often hides in patterns across a pr
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |---|---|---|---|---|---|
-| Logistic Regression | – | – | – | 0.552 (CV) | – |
-| Random Forest | – | – | – | 0.595 (CV) | – |
-| XGBoost | 0.908 | 0.503 | – | 0.582 (CV) | – |
-| **Stacking Classifier (Best)** | **0.930** | **0.607** | **0.703** | **0.651** | **0.951** |
+| Logistic Regression | 0.8725 | 0.4163 | 0.9109 | 0.5714 | 0.9509 |
+| Random Forest | 0.9085 | 0.5063 | 0.7921 | 0.6178 | 0.9472 |
+| XGBoost | 0.9076 | 0.5029 | 0.8515 | 0.6324 | 0.9550 |
+| **Stacking Classifier (Best)** | **0.9298** | **0.6068** | **0.7030** | **0.6514** | **0.9511** |
+
+The Stacking Classifier was selected as the best model based on the highest **F1 score (0.6514)** and **accuracy (92.98%)**, offering the best balance between precision and recall. While XGBoost had a marginally higher ROC-AUC, the Stacking Classifier's superior precision-recall balance made it more reliable for practical fraud-flagging decisions.
+
+At the optimized decision threshold (0.338 instead of the default 0.5), recall improved to **0.762**, meaning the model catches more true fraud cases at a small, acceptable cost to precision.
+
+**Top features driving fraud predictions:**
+1. Total reimbursed amount
+2. Total deductible
+3. Inpatient claim count
+4. Inpatient-to-outpatient claim ratio
+5. Max claim amount
 
 At the optimized decision threshold (0.338 instead of the default 0.5), recall improved to **0.762**, meaning the model catches more true fraud cases at a small, acceptable cost to precision.
 
